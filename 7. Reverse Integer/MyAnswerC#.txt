@@ -1,0 +1,32 @@
+public class Solution {
+    public int Reverse(int x) {            
+            string xStr = x.ToString();
+            bool isNegative = false;
+            if (xStr[0] == '-')
+            {
+                isNegative = true;
+                xStr = xStr.Remove(0, 1);
+            }
+               
+            char[] xCharArray = xStr.ToCharArray();
+
+
+            Array.Reverse(xCharArray);
+            string reverseXStr = new string(xCharArray);
+            int reverseInt;
+            try
+            {
+                reverseInt = int.Parse(reverseXStr);
+            }
+            catch(OverflowException)
+            {
+                return 0;
+            }
+
+            if (isNegative)
+            {
+                reverseInt = reverseInt - reverseInt * 2;
+            }
+            return (reverseInt);
+    }
+}
