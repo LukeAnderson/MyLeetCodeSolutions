@@ -1,0 +1,21 @@
+public class Solution {
+    public bool JudgeCircle(string moves)
+    {
+        return ((
+            moves
+            .Select(getUs => getUs.Equals('U'))
+            .Where(uIsTrue => uIsTrue == true).Count()
+            ==
+            moves
+            .Select(getDs => getDs.Equals('D'))
+            .Where(dIsTrue => dIsTrue == true).Count()
+            ) && (
+            moves
+            .Select(getLs => getLs.Equals('L'))
+            .Where(lIsTrue => lIsTrue == true).Count())
+            ==
+            moves
+            .Select(getRs => getRs.Equals('R'))
+            .Where(rIsTrue => rIsTrue == true).Count());
+    }
+}
