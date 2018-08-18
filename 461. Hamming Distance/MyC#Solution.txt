@@ -1,0 +1,36 @@
+public class Solution {
+    public int HammingDistance(int x, int y)
+    {
+        string xStr = Convert.ToString(x, 2);
+        string yStr = Convert.ToString(y, 2);
+
+        if(xStr.Length != yStr.Length)
+        {
+            int diff = Math.Abs(xStr.Length - yStr.Length);
+            if (xStr.Length < yStr.Length)
+                xStr = addLeading0s(xStr, diff);
+            else
+                yStr = addLeading0s(yStr, diff);
+        }
+
+
+        //Console.WriteLine("xStr " + xStr);
+        //Console.WriteLine("yStr " + yStr);
+
+        int count = 0;
+        for(int i = 0; i < xStr.Length; i++)
+        {
+            if (xStr[i] != yStr[i])
+                count++;
+        }
+
+        return count;
+    }
+
+    public string addLeading0s(string s,int numOfZerosToAdd)
+    {
+        for(int i = 0; i < numOfZerosToAdd; i++)
+            s = s.Insert(0,"0");
+        return s;
+    }
+}
