@@ -1,0 +1,21 @@
+function calculateFizzBuzzString(i){
+    var fizzbuzzStr = "";
+    if(i % 3 == 0)
+         fizzbuzzStr += "Fizz";
+    if(i % 5 == 0)
+        fizzbuzzStr += "Buzz";
+    if(!fizzbuzzStr) 
+        return fizzbuzzStr += i;
+    return fizzbuzzStr;
+};
+
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var fizzBuzz = function(n) {
+    var strArr = [];
+    for(i = 1; i <= n; i++)
+        strArr.push(calculateFizzBuzzString(i));
+    return strArr;
+};
