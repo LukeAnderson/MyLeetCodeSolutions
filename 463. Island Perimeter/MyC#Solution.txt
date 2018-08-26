@@ -1,0 +1,20 @@
+public class Solution {
+    public int IslandPerimeter(int[,] grid) 
+    {
+        int totalPerimeter = 0;
+        for (int x = 0; x < grid.GetLength(0); x++)
+        {
+            for (int y = 0; y < grid.GetLength(1); y++)
+            {
+                if (grid[x, y] == 0) continue;
+                int neighborCount = 0;
+                if (x != 0) neighborCount += grid[x - 1, y];
+                if (x != grid.GetLength(0) - 1) neighborCount += grid[x + 1, y];
+                if (y != 0) neighborCount += grid[x, y - 1];
+                if (y != grid.GetLength(1) - 1)neighborCount += grid[x, y + 1];
+                totalPerimeter += 4 - neighborCount;
+            }
+        }
+        return totalPerimeter;
+    }
+}
