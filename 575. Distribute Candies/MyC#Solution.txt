@@ -1,0 +1,7 @@
+public class Solution {
+    public int DistributeCandies(int[] candies) {
+        int fairAmountOfCandies = candies.Count()/2;
+        int numberOfKinds = candies.Distinct().Count();
+        return fairAmountOfCandies <= numberOfKinds ? fairAmountOfCandies : numberOfKinds;
+    }
+}
